@@ -13,6 +13,7 @@ function RegisterForm() {
     lastname: '',
     email: '',
     userName: '',
+    profileImgUrl: '',
     address: '',
     isSeller: false,
   });
@@ -34,15 +35,19 @@ function RegisterForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>FirstName</Form.Label>
-        <Form.Control type="text" name="FirstName" required placeholder="First Name" onChange={handleChange} />
+        <Form.Label>User Registration</Form.Label><br />
         <Form.Text className="text-muted">Please enter your first name</Form.Text>
-        <Form.Control type="text" name="LastName" required placeholder="Last Name" onChange={handleChange} />
+        <Form.Control type="text" name="FirstName" required placeholder="First Name" onChange={handleChange} />
         <Form.Text className="text-muted">Please enter your last name</Form.Text>
-        <Form.Control type="text" name="UserName" required placeholder="Enter User Name" onChange={handleChange} />
+        <Form.Control type="text" name="LastName" required placeholder="Last Name" onChange={handleChange} />
         <Form.Text className="text-muted">Please enter your user name</Form.Text>
-        <Form.Control type="text" name="Address" required placeholder="Enter Address" onChange={handleChange} />
+        <Form.Control type="text" name="UserName" required placeholder="Enter User Name" onChange={handleChange} />
+        <Form.Text className="text-muted">Please enter your email address</Form.Text>
+        <Form.Control type="email" name="Email" required placeholder="Enter Email Address" onChange={handleChange} />
         <Form.Text className="text-muted">Please enter your address</Form.Text>
+        <Form.Control type="text" name="Address" required placeholder="Enter Address" onChange={handleChange} />
+        <Form.Text className="text-muted">Please enter a profile image url</Form.Text>
+        <Form.Control type="text" name="ProfileImgUrl" required placeholder="Profile Image URL" onChange={handleChange} /><br />
         <Form.Check
           className="seller?"
           type="switch"
@@ -56,6 +61,7 @@ function RegisterForm() {
             }));
           }}
         />
+        <Form.Text className="text-muted">Are you a seller?</Form.Text>
       </Form.Group>
       <Button variant="primary" type="submit">
         Submit
@@ -73,6 +79,7 @@ RegisterForm.propTypes = {
       lastName: PropTypes.string,
       email: PropTypes.string,
       userName: PropTypes.string,
+      profileImgUrl: PropTypes.string,
       address: PropTypes.string,
       isSeller: PropTypes.bool,
     }).isRequired,
