@@ -51,17 +51,17 @@ function RegisterForm() {
         <Form.Check
           className="seller?"
           type="switch"
+          label="Will you be selling products?"
           id="seller"
-          name="IsSeller"
-          checked={formData.IsSeller}
+          name="isSeller"
+          checked={formData.isSeller}
           onChange={(e) => {
             setFormData((prevState) => ({
               ...prevState,
-              IsSeller: e.target.checked,
+              isSeller: e.target.checked,
             }));
           }}
         />
-        <Form.Text className="text-muted">Are you a seller?</Form.Text>
       </Form.Group>
       <Button variant="primary" type="submit">
         Submit
