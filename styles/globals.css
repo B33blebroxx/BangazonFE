@@ -27,3 +27,7 @@ body {
   flex-direction: row;
   justify-content: space-evenly;
 }
+
+#product-details-card {
+  width: 22rem;
+}

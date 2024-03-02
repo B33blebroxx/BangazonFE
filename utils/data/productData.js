@@ -37,4 +37,18 @@ const removeProductFromOrder = (orderId, productId) => new Promise((resolve, rej
     .catch(reject);
 });
 
-export { getAllProducts, addProductToOrder, removeProductFromOrder };
+const getSingleProduct = (id) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/products/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+export {
+  getAllProducts, addProductToOrder, removeProductFromOrder, getSingleProduct,
+};
