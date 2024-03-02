@@ -8,7 +8,7 @@ import { useAuth } from '../utils/context/authContext';
 function RegisterForm() {
   const { user, updateUser } = useAuth();
   const [formData, setFormData] = useState({
-    uId: user.fbUser.Uid,
+    uid: user.fbUser.uid,
     firstName: '',
     lastname: '',
     email: '',
@@ -21,7 +21,8 @@ function RegisterForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    registerUser(formData).then(() => updateUser(user.fbUser.Uid));
+    registerUser(formData).then(() => updateUser(user.fbUser.uid));
+    console.warn(user.uid, user.fbUser.uid);
   };
 
   const handleChange = (e) => {
@@ -31,7 +32,6 @@ function RegisterForm() {
       [name]: value,
     }));
   };
-
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -74,7 +74,7 @@ RegisterForm.propTypes = {
   user: PropTypes.shape({
     fbUser: PropTypes.shape({
       id: PropTypes.number,
-      uId: PropTypes.string.isRequired,
+      uid: PropTypes.string.isRequired,
       firstName: PropTypes.string,
       lastName: PropTypes.string,
       email: PropTypes.string,
