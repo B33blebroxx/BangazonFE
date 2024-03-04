@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function ProductCard({ productObj }) {
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Img variant="top" src={productObj.imgUrl} alt={productObj.name} style={{ height: '400px' }} />
+      <Card.Img variant="top" src={productObj.imageUrl} alt={productObj.name} style={{ height: '400px' }} />
       <Card.Body>
         <Card.Title className="card-title">{productObj.name}</Card.Title>
         <Card.Text className="card-text">{productObj.description}</Card.Text>
@@ -21,7 +21,7 @@ export default function ProductCard({ productObj }) {
 ProductCard.propTypes = {
   productObj: PropTypes.shape({
     name: PropTypes.string,
-    imgUrl: PropTypes.string,
+    imageUrl: PropTypes.string,
     description: PropTypes.string,
     price: PropTypes.number,
     id: PropTypes.number,
